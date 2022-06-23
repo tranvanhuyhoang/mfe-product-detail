@@ -69,10 +69,10 @@ export default {
     methods: {
       selectVariant(variant){
         this.variantActive = variant;
-        this.store.dispatch('setSku', variant.sku);
+        this.store.setSku(variant.sku);
       },
       addToCart(){
-        this.store.dispatch('setCount');
+        this.store.setCount();
       },
       getThumbImgUrl: function (imagePath) {
         return require('@/assets/' + imagePath);
