@@ -5901,7 +5901,7 @@
 
 "webpack-merge@^5.7.3":
   "integrity" "sha512-/SaI7xY0831XwP6kzuwhKWVKDP9t1QY1h65lAFLbZqMPIuYcD9QAW4u9STIbU9kaJbPBB/geU/gLr1wDjOhQ+Q=="
-  "resolved" "https://registry.npmmirror.com/webpack-merge/-/webpack-merge-5.8.0.tgz"
+  "resolved" "https://registry.npmjs.org/webpack-merge/-/webpack-merge-5.8.0.tgz"
   "version" "5.8.0"
   dependencies:
     "clone-deep" "^4.0.1"
