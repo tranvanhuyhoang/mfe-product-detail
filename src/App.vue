@@ -1,15 +1,18 @@
 <template>
   <div id="container-product-detail">
+    <div class="pre-style show-store-detail-layout">
+      Detail's Store: {{
+        JSON.stringify(store.state, null, 4)
+      }}
+    </div>
      <div class="column-1">
        <h1 class="title">The Model Store</h1>
        <img class="img-custom" alt="1" :src="getThumbImgUrl(variantActive.image)">
      </div>
-     <div class="column-2">
+     <div id="column-2" class="column-2">
+      <div id="product-cart"></div>
+      <div class="wrap-content-detail">
       <div class="top-content">
-        <div class="container-cart">
-          <span class="cart">Cart: {{store.state.count}} items</span>
-        </div>
-       
         <div class="name-product">{{variantActive.name}}</div>
       </div>
       <div class="bottom-content">
@@ -23,9 +26,7 @@
           @click="selectVariant(item)"
           >
         </div>
-        <button class="buy-btn"  @click="addToCart()">
-          Buy for {{variantActive.price}}
-        </button>
+      </div>
       </div>
      </div>
   </div>
@@ -71,9 +72,6 @@ export default {
         this.variantActive = variant;
         this.store.dispatch('setSku', variant.sku);
       },
-      addToCart(){
-        this.store.dispatch('setCount');
-      },
       getThumbImgUrl: function (imagePath) {
         return require('@/assets/' + imagePath);
       }
@@ -88,6 +86,23 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
   display: flex;
+}
+
+.show-store-detail-layout{
+  position: absolute;
+  left: 5px;
+  bottom: 5px;
+  color: #f96b00;
+  text-align: start;
+}
+
+.wrap-content-detail {
+  position: absolute;
+  top: 100px;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .column-1{
@@ -105,6 +120,7 @@ export default {
   width: 50%;
   flex-direction: column;
   justify-content: space-between;
+  position: relative;
 }
 
 .column-2 .top-content{
@@ -113,18 +129,12 @@ export default {
   flex-direction: column;
 }
 
-.column-2 .top-content .container-cart{
-  text-align: end;
+.column-2 #product-cart{
+  margin-top: 20px;
 }
 
-.column-2 .top-content .container-cart .cart{
-  background: green;
-  padding: 8px 15px;
-  margin: 12px 12px 0 0;
-  border-radius: 4px;
-  color: #fff;
-  box-sizing: border-box;
-  line-height: 52px;
+.column-2 .top-content .container-cart{
+  text-align: end;
 }
 
 .column-2 .top-content .name-product{
@@ -136,24 +146,9 @@ export default {
   text-align: center;
 }
 
-.column-2 .bottom-content .buy-btn{
-  width: 60%;
-  margin: 50px auto 20px auto;
-  padding: 15px 25px;
-  font-size: 15px;
-  text-align: center;
-  cursor: pointer;
-  border: 1px solid #4f4f4f;
-  border-radius: 6px;
-  transition: 0.4s;
+.column-2 .bottom-content .container-thumnail{
+  margin-left: 55px;
 }
-
-.column-2 .bottom-content .buy-btn:hover{
-  background-color: green;
-  color: #fff;
-  font-weight: bold;
-}
-
 
 .column-2 .img-thumb-custom{
   cursor: pointer;

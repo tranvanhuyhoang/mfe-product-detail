@@ -7,6 +7,7 @@ Vue.config.productionTip = false
 const vueLifecycles = singleSpaVue({
   Vue,
   appOptions: {
+    el: "#product-detail",
     render(h) {
       return h(App, { props: { store: this.store } })
     },
@@ -16,6 +17,8 @@ const vueLifecycles = singleSpaVue({
 export const bootstrap = vueLifecycles.bootstrap
 export const mount = (props) => {
   let el = document.getElementById("product-detail")
+  let elColumn2 = document.getElementById("#column-2")
+  console.log("elColumn2 ", elColumn2)
   if (!el) {
     el = document.createElement("div")
     el.id = "product-detail"
