@@ -92,7 +92,7 @@ export default {
   position: absolute;
   left: 5px;
   bottom: 5px;
-  color: #f96b00;
+  color: red;
   text-align: start;
 }
 
